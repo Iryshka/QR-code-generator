@@ -1,0 +1,9 @@
+:root {
+    --font-color: #231b1b;
+    --accent-color-1: #e210f1;
+    --bg-color: #fcf4e5;;
+    --breakpoint-x-small: 375px;
+    --breakpoint-small: 768px;
+    --breakpoint-medium: 1024px;
+    --breakpoint-large: 1440px;
+}

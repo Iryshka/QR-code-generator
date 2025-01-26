@@ -1,0 +1,7 @@
+.button {
+    display: block;
+    margin: 10px;
+    padding: 10px 16px;
+    background-color: #57c4ec;
+    box-shadow: 5px 5px;
+}
