@@ -1,26 +1,33 @@
 .generator {
+    display: grid;
     height: 70vh;
     width: 90%;
     border: 2px solid var(--font-color);
     color: var(--accent-color-1);
 }
 
-.generator__wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
 .input__wrapper {
-
+     grid-column: span 2;
 }
+
+@media (min-width: 768px) {
+    .input__wrapper {
+        grid-column: span 1;
+    }
+}
+
 
 .generator__input {
     display: block;
     margin: 10px;
     padding: 10px 25px;
-    border: 2px solid var(--font-color)
+    border: 2px solid var(--font-color);
+    box-shadow: 5px 5px;
+    outline: none;
 }
 
 .qrcode__wrapper {
-    display: block;
+
 }
+
+

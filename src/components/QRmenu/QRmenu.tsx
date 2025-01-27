@@ -1,7 +1,7 @@
 import styles from "./QRmenu.module.css";
 
-function QRmenu() {
-  return <div className={styles.menu}></div>;
+function QRmenu({ classname }) {
+  return <div className={styles.menu}>Menu</div>;
 }
 
 export default QRmenu;
