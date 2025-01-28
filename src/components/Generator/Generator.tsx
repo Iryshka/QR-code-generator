@@ -2,16 +2,16 @@ import { useState, useRef } from "react";
 import { QRCodeSVG } from "qrcode.react"; // Import QRCode from qrcode.react
 import generatorStyles from "../Generator/Generator.module.css";
 import buttonStyles from "../Button/Button.module.css";
+import { ColorPicker } from "primereact/colorpicker";
 import QRmenu from "../QRmenu/QRmenu.tsx";
 import Button from "../Button/Button.tsx";
+import RunningLine from "../RunningLine/RunningLine.tsx";
 
 function Generator() {
   const [url, setUrl] = useState("");
   const [back, setBack] = useState("#FFFFFF");
   const [fore, setFore] = useState("#000000");
   const [size, setSize] = useState(200);
-  // const [generate, setGenerate] = useState(false);
-  // const [isFocused, setIsFocused] = useState(false);
 
   // Ref to access the QRCodeSVG element
   const qrRef = useRef<SVGSVGElement | null>(null);
@@ -56,15 +56,6 @@ function Generator() {
     img.src = url;
   }
 
-  // function handleFocus() {
-  //   if (!isFocused) {
-  //     setIsFocused(true);
-  //   }
-  //   if (url === "https://example.com") {
-  //     setUrl("");
-  //   }
-  // }
-
   return (
     <main className={generatorStyles.generator}>
       <QRmenu />
@@ -95,17 +86,27 @@ function Generator() {
           ref={qrRef}
         />
 
-        <div className="qrcode__inputs">
-          <input
-            type="color"
+        <div className={generatorStyles.qrcode__inputs}>
+          <ColorPicker
+            format="hex"
             value={back}
-            onChange={(e) => setBack(e.target.value)}
+            onChange={(e) => setBack(`#${e.value}`)}
           />
-          <input
-            type="color"
+          <ColorPicker
+            format="hex"
             value={fore}
-            onChange={(e) => setFore(e.target.value)}
+            onChange={(e) => setFore(`#${e.value}`)}
           />
+          {/*<input*/}
+          {/*  type="color"*/}
+          {/*  value={back}*/}
+          {/*  onChange={(e) => setBack(e.target.value)}*/}
+          {/*/>*/}
+          {/*<input*/}
+          {/*  type="color"*/}
+          {/*  value={fore}*/}
+          {/*  onChange={(e) => setFore(e.target.value)}*/}
+          {/*/>*/}
         </div>
         <Button className={buttonStyles.button} onClick={downloadQRcode}>
           Download

@@ -1,3 +1,4 @@
+import { Dropdown } from "primereact/dropdown";
 import styles from "./QRmenu.module.css";
 
 function QRmenu({ classname }) {
