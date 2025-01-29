@@ -1,13 +1,12 @@
 import Header from "./components/Header/Header.tsx";
 import Hero from "./components/Hero/Hero.tsx";
-import RunningLine from "./components/RunningLine/RunningLine.tsx";
+import MarqueeText from "./components/MarqueeText/MarqueeText.tsx";
 
 function App() {
   return (
     <>
-      <RunningLine />
+      <MarqueeText />
       <Header />
-
       <Hero />
     </>
   );

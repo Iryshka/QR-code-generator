@@ -6,4 +6,7 @@
     background-color: var(--accent-color-2);
     box-shadow: 5px 5px;
     cursor: pointer;
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    font-style: normal;
 }

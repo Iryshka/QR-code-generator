@@ -5,7 +5,7 @@ import buttonStyles from "../Button/Button.module.css";
 import { ColorPicker } from "primereact/colorpicker";
 import QRmenu from "../QRmenu/QRmenu.tsx";
 import Button from "../Button/Button.tsx";
-import RunningLine from "../RunningLine/RunningLine.tsx";
+import MarqueeText from "../MarqueeText/MarqueeText.tsx";
 
 function Generator() {
   const [url, setUrl] = useState("");
@@ -97,16 +97,6 @@ function Generator() {
             value={fore}
             onChange={(e) => setFore(`#${e.value}`)}
           />
-          {/*<input*/}
-          {/*  type="color"*/}
-          {/*  value={back}*/}
-          {/*  onChange={(e) => setBack(e.target.value)}*/}
-          {/*/>*/}
-          {/*<input*/}
-          {/*  type="color"*/}
-          {/*  value={fore}*/}
-          {/*  onChange={(e) => setFore(e.target.value)}*/}
-          {/*/>*/}
         </div>
         <Button className={buttonStyles.button} onClick={downloadQRcode}>
           Download
