@@ -23,7 +23,6 @@ function Generator() {
   function downloadQRcode() {
     const svgElement = qrRef.current;
     if (!svgElement) {
-      alert("QR Code not found!");
       return;
     }
 

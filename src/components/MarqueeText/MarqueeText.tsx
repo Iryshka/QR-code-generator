@@ -1,45 +1,33 @@
 import marqueeStyles from "./MarqueeText.module.css";
 function MarqueeText() {
+  const marqueePhrases = [
+    "Faster Access",
+    "Instant Sharing",
+    "Business Growth",
+    "Boost Sales",
+    "Engage Customers",
+    "Global Reach",
+    "Secure & Reliable",
+    "Instant Sharing",
+    "Quick & Easy",
+  ];
+
   return (
     <div className={marqueeStyles.marquee__wrapper}>
       <div className={marqueeStyles.marquee__text}>
         <div className={marqueeStyles.marquee__track}>
-          <p className={marqueeStyles.marquee__phrase}>Faster Access </p>
-          <p className={marqueeStyles.marquee__phrase}>Instant Sharing</p>
-          <p className={marqueeStyles.marquee__phrase}>Business Growth</p>
-          <p className={marqueeStyles.marquee__phrase}>Boost Sales</p>
-          <p className={marqueeStyles.marquee__phrase}>Engage Customers</p>
-          <p className={marqueeStyles.marquee__phrase}>Global Reach</p>
-          <p className={marqueeStyles.marquee__phrase}>Secure & Reliable</p>
-          <p className={marqueeStyles.marquee__phrase}>Instant Sharing</p>
-          <p className={marqueeStyles.marquee__phrase}>Quick & Easy</p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Faster Access
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Instant Sharing
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Business Growth
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Boost Sales
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Engage Customers
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Global Reach
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Secure & Reliable
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Instant Sharing
-          </p>
-          <p className={marqueeStyles.marquee__phrase} aria-hidden="true">
-            Quick & Easy
-          </p>
+          {Array(2)
+            .fill(marqueePhrases)
+            .flat()
+            .map((phrase, index) => (
+              <p
+                key={`${phrase}-${index}`}
+                className={marqueeStyles.marquee__phrase}
+                aria-hidden={index > marqueePhrases.length}
+              >
+                {phrase}
+              </p>
+            ))}
         </div>
       </div>
     </div>
