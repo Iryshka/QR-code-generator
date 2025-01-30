@@ -27,7 +27,7 @@
 }
 
 .marquee__phrase::after {
-    content: "•"; /* Dot separator */
+    content: "•";
     font-size: 18px;
     color: black;
     margin-left: 0.6rem;

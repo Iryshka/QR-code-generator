@@ -3,7 +3,7 @@
     height: 70vh;
     width: 90%;
     border: 2px solid var(--font-color);
-    color: var(--accent-color-1);
+    color: var(--font-color);
 
 }
 
@@ -24,11 +24,12 @@
     flex-direction: column;
     padding: 0 10px;
     gap: 10px;
-     grid-column: span 2;
+    grid-column: span 2;
     text-align: start;
     font-family: "Poppins", serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
+    border-right: 2px solid var(--font-color);
 }
 
 .input__label {
