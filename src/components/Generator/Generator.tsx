@@ -5,13 +5,17 @@ import buttonStyles from "../Button/Button.module.css";
 import { ColorPicker } from "primereact/colorpicker";
 import QRmenu from "../QRmenu/QRmenu.tsx";
 import Button from "../Button/Button.tsx";
-import MarqueeText from "../MarqueeText/MarqueeText.tsx";
+import ToggleButton from "../ToggleButton/ToggleButton.tsx";
 
 function Generator() {
   const [url, setUrl] = useState("");
   const [back, setBack] = useState("#FFFFFF");
   const [fore, setFore] = useState("#000000");
   const [size, setSize] = useState(200);
+
+  function ToggleButton() {
+    console.log("i'm toggled");
+  }
 
   // Ref to access the QRCodeSVG element
   const qrRef = useRef<SVGSVGElement | null>(null);
@@ -75,6 +79,7 @@ function Generator() {
         </Button>
       </div>
       <div className={generatorStyles.qrcode__wrapper}>
+        <ToggleButton />
         <QRCodeSVG
           className={generatorStyles.svg}
           value={url}
