@@ -1,10 +1,8 @@
 import styles from "./Hero.module.css";
 import Generator from "../Generator/Generator.tsx";
+import ToggleButton from "../ToggleButton/ToggleButton.tsx";
 
 function Hero() {
-  function ToggleButton() {
-    console.log("i'm toggled");
-  }
   return (
     <div className={styles.hero__wrapper}>
       <ToggleButton />

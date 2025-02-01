@@ -8,8 +8,4 @@
     "typeRoots": ["node_modules/@types"],
     "types": ["gsap"]
   },
-  "include": [
-    "src/types/**/*.d.ts",  // Add the path to the custom type definitions
-    "src/**/*"  // Include your source code files
-  ]
 }

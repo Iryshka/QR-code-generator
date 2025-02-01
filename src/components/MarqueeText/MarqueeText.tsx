@@ -1,5 +1,10 @@
-import marqueeStyles from "./MarqueeText.module.css";
+import { useContext } from "react";
+import AnimationContext from "../../context/AnimationContext.tsx";
+import MarqueeTextStyles from "./MarqueeText.module.css";
+
 function MarqueeText() {
+  const { isAnimating } = useContext(AnimationContext);
+
   const marqueePhrases = [
     "Faster Access",
     "Instant Sharing",
@@ -13,16 +18,20 @@ function MarqueeText() {
   ];
 
   return (
-    <div className={marqueeStyles.marquee__wrapper}>
-      <div className={marqueeStyles.marquee__text}>
-        <div className={marqueeStyles.marquee__track}>
+    <div className={MarqueeTextStyles.marquee__wrapper}>
+      <div className={MarqueeTextStyles.marquee__text}>
+        <div
+          className={`${MarqueeTextStyles.marquee__track} ${
+            isAnimating ? MarqueeTextStyles.animate : MarqueeTextStyles.stop
+          }`}
+        >
           {Array(2)
             .fill(marqueePhrases)
             .flat()
             .map((phrase, index) => (
               <p
                 key={`${phrase}-${index}`}
-                className={marqueeStyles.marquee__phrase}
+                className={MarqueeTextStyles.marquee__phrase}
                 aria-hidden={index > marqueePhrases.length}
               >
                 {phrase}

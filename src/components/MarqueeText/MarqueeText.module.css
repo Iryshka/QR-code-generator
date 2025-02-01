@@ -9,7 +9,7 @@
     height: 5vh;
     padding: 0.1rem 0;
     color: black;
-    background-color: #f6d948;
+    background-color: var(--marquee-text);
     font-size: 1.2rem;
 }
 
@@ -41,9 +41,17 @@
 }
 
 
-
 @keyframes marquee-move-text {
     to {
         transform: translateX(-50%);
     }
+}
+
+.animate {
+    animation: marquee-move-text 15s linear infinite;
+}
+
+.stop {
+    animation: none;
+
 }
