@@ -1,51 +1,61 @@
 import { useState, useRef } from "react";
-import { QRCodeSVG } from "qrcode.react"; // Import QRCode from qrcode.react
+import { QRCodeSVG } from "qrcode.react";
 import generatorStyles from "../Generator/Generator.module.css";
 import buttonStyles from "../Button/Button.module.css";
 import { ColorPicker } from "primereact/colorpicker";
 import QRmenu from "../QRmenu/QRmenu.tsx";
 import Button from "../Button/Button.tsx";
-import ToggleButton from "../ToggleButton/ToggleButton.tsx";
 
 function Generator() {
   const [url, setUrl] = useState("");
+  const [submittedUrl, setSubmittedUrl] = useState("");
+  const [error, setError] = useState(""); // Stores validation errors
   const [back, setBack] = useState("#FFFFFF");
   const [fore, setFore] = useState("#000000");
   const [size, setSize] = useState(200);
 
-  function ToggleButton() {
-    console.log("i'm toggled");
-  }
-
-  // Ref to access the QRCodeSVG element
   const qrRef = useRef<SVGSVGElement | null>(null);
 
-  function generateQRcode() {
-    console.log("clicked");
-    setGenerate(true);
+  // URL validation function
+  function isValidURL(url) {
+    const regex = new RegExp(
+      /^((http|https):\/\/)(www\.)?[a-zA-Z0-9@:%._\+~#?&//=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%._\+~#?&//=]*)$/
+    );
+    return regex.test(url);
   }
-  function downloadQRcode() {
-    const svgElement = qrRef.current;
-    if (!svgElement) {
+
+  // Generate QR code only when button is clicked
+  const generateQRcode = () => {
+    if (!url.trim()) {
+      setError("URL is required");
+      return;
+    }
+    if (!isValidURL(url)) {
+      setError("Enter a valid URL (starting with  https://)");
       return;
     }
 
-    // Serialize the SVG to string
+    setError("");
+    setSubmittedUrl(url);
+  };
+
+  const downloadQRcode = () => {
+    const svgElement = qrRef.current;
+    if (!svgElement) return;
+
     const svgData = new XMLSerializer().serializeToString(svgElement);
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const img = new Image();
 
-    // Convert SVG to Blob
     const svgBlob = new Blob([svgData], {
       type: "image/svg+xml;charset=utf-8",
     });
     const url = URL.createObjectURL(svgBlob);
 
-    // Load the image and draw it to canvas
     img.onload = () => {
-      canvas.width = svgElement.clientWidth;
-      canvas.height = svgElement.clientHeight;
+      canvas.width = size;
+      canvas.height = size;
       ctx?.drawImage(img, 0, 0);
       URL.revokeObjectURL(url);
 
@@ -57,7 +67,7 @@ function Generator() {
     };
 
     img.src = url;
-  }
+  };
 
   return (
     <main className={generatorStyles.generator}>
@@ -74,15 +84,16 @@ function Generator() {
             placeholder="https://example.com"
           />
         </div>
+        {error && <p className={generatorStyles.generator__error}>{error}</p>}
         <Button className={buttonStyles.button} onClick={generateQRcode}>
           Generate QR
         </Button>
       </div>
+
       <div className={generatorStyles.qrcode__wrapper}>
-        <ToggleButton />
         <QRCodeSVG
           className={generatorStyles.svg}
-          value={url}
+          value={submittedUrl}
           bgColor={back}
           fgColor={fore}
           size={size}
@@ -91,19 +102,26 @@ function Generator() {
         />
 
         <div className={generatorStyles.qrcode__inputs}>
-          <ColorPicker
-            format="hex"
-            value={back}
-            onChange={(e) => setBack(`#${e.value}`)}
-          />
-          <ColorPicker
-            format="hex"
-            value={fore}
-            onChange={(e) => setFore(`#${e.value}`)}
-          />
+          <div>
+            <label>Background Color:</label>
+            <ColorPicker
+              format="hex"
+              value={back}
+              onChange={(e) => setBack(`#${e.value}`)}
+            />
+          </div>
+          <div>
+            <label>Foreground Color:</label>
+            <ColorPicker
+              format="hex"
+              value={fore}
+              onChange={(e) => setFore(`#${e.value}`)}
+            />
+          </div>
         </div>
+
         <Button className={buttonStyles.button} onClick={downloadQRcode}>
-          Download
+          Download QR Code
         </Button>
       </div>
     </main>
