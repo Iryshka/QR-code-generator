@@ -1,8 +1,12 @@
-import { Dropdown } from "primereact/dropdown";
-import styles from "./QRmenu.module.css";
+import GeneratorDropDown from "../GeneratorDropDown/GeneratorDropDown.tsx";
+import QRmenuStyles from "./QRmenu.module.css";
 
 function QRmenu({ classname }) {
-  return <div className={styles.menu}>Menu</div>;
+  return (
+    <div className={QRmenuStyles.menu}>
+      <GeneratorDropDown />
+    </div>
+  );
 }
 
 export default QRmenu;
