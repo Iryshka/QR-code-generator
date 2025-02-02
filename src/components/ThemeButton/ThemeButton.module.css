@@ -1,0 +1,33 @@
+.toggle__button {
+    position: fixed;
+    top: 16vh;
+    right: 10px;
+    padding: 2px;
+    width: 35px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+    font-family: "Space Mono", serif;
+    color: var(--font-color);
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .toggle__button {
+        padding: 4px;
+        width: 50px
+    }
+}
+
+.toggle__button.on {
+    background-color: var(--marquee-text);
+}
+
+.toggle__button.off {
+    background-color: #f85548;
+}
+
+.stop {
+    animation: none;
+}

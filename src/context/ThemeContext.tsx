@@ -1,9 +1,21 @@
-import { createContext, useState, useContext, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
 
 const ThemeContext = createContext<any>(null);
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevState) => {
@@ -12,7 +24,7 @@ export function ThemeProvider({ children }) {
   };
   console.log(theme);
   return (
-    <ThemeContext.Provider value={(theme, toggleTheme)}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -11,3 +11,17 @@
     --breakpoint-medium: 1024px;
     --breakpoint-large: 1440px;
 }
+
+[data-theme="dark"] {
+    --font-color: #d3d3d3;
+    --accent-color-1: #e210f1;
+    --accent-color-2: #555555;
+    --accent-color-3: #333333;
+    --marquee-text: #a6a6a6;
+    --error-color: #f28c8c;
+    --bg-color: #121212;
+}
+
+
+
+
