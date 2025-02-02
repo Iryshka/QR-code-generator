@@ -1,9 +1,17 @@
 .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
     border-bottom: 2px solid var(--font-color);
     grid-column: span 2;
+}
+
+@media (min-width: 768px) {
+    .menu {
+
+        justify-content: flex-start;
+
+    }
 }
 
 

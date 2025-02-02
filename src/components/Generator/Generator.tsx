@@ -5,18 +5,18 @@ import buttonStyles from "../Button/Button.module.css";
 import { ColorPicker } from "primereact/colorpicker";
 import QRmenu from "../QRmenu/QRmenu.tsx";
 import Button from "../Button/Button.tsx";
+import GeneratorDropDown from "../GeneratorDropDown/GeneratorDropDown.tsx";
 
 function Generator() {
   const [url, setUrl] = useState("");
   const [submittedUrl, setSubmittedUrl] = useState("");
-  const [error, setError] = useState(""); // Stores validation errors
+  const [error, setError] = useState("");
   const [back, setBack] = useState("#FFFFFF");
   const [fore, setFore] = useState("#000000");
   const [size, setSize] = useState(200);
 
   const qrRef = useRef<SVGSVGElement | null>(null);
 
-  // URL validation function
   function isValidURL(url) {
     const regex = new RegExp(
       /^((http|https):\/\/)(www\.)?[a-zA-Z0-9@:%._\+~#?&//=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%._\+~#?&//=]*)$/
@@ -24,7 +24,6 @@ function Generator() {
     return regex.test(url);
   }
 
-  // Generate QR code only when button is clicked
   const generateQRcode = () => {
     if (!url.trim()) {
       setError("URL is required");
