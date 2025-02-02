@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AnimationContext from "../../context/AnimationContext.tsx";
 import ToggleButtonStyles from "./ToggleButton.module.css";
 
-export default function ToggleButton() {
+function ToggleButton() {
   const { isAnimating, toggleAnimation } = useContext(AnimationContext);
 
   return (
@@ -16,3 +16,5 @@ export default function ToggleButton() {
     </button>
   );
 }
+
+export default ToggleButton;

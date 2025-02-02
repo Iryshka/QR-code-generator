@@ -13,11 +13,11 @@
 }
 
 [data-theme="dark"] {
-    --font-color: #d3d3d3;
+    --font-color: #eeeded;
     --accent-color-1: #e210f1;
     --accent-color-2: #555555;
     --accent-color-3: #333333;
-    --marquee-text: #a6a6a6;
+    --marquee-text: #640279;
     --error-color: #f28c8c;
     --bg-color: #121212;
 }
