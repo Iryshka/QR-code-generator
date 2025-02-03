@@ -12,7 +12,7 @@ function ToggleButton() {
         isAnimating ? ToggleButtonStyles.on : ToggleButtonStyles.off
       }`}
     >
-      {isAnimating ? "on" : "off"}
+      {isAnimating ? "on" : "☹️"}
     </button>
   );
 }

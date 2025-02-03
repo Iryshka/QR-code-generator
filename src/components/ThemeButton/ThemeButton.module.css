@@ -7,12 +7,12 @@
     font-family: "Space Mono", serif;
     color: var(--font-color);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 17px;
     border-radius: 8px;
     overflow: hidden;
 }
 
 .theme__button:hover {
-    background: radial-gradient(circle, rgba(128, 0, 128, 0.5) 10%, rgba(128, 0, 128, 0) 80%);
+    background: radial-gradient(circle, var(--accent-color-3) 10%, var(--accent-color-3-transparent) 80%);
     transition: background 0.3s ease;
 }

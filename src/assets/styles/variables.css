@@ -1,8 +1,8 @@
 :root {
     --font-color: #231b1b;
-    --accent-color-1: #e210f1;
     --accent-color-2: #57C4EC;
     --accent-color-3: #88f588;
+    --accent-color-3-transparent: rgba(136, 245, 136, 0);
     --marquee-text: #f5bc03;
     --error-color: #f17575;
     --bg-color: #fdfcfb;;

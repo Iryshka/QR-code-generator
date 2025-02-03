@@ -8,7 +8,6 @@ import ThemeContext from "../../context/ThemeContext.tsx";
 
 function Header() {
   const [isNavVisible, setIsNavVisible] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
 
   function toggleNav() {
     setIsNavVisible(!isNavVisible);
@@ -17,8 +16,10 @@ function Header() {
     <header className={HeaderStyles.header}>
       <Logo />
       <NavBar />
-      <ThemeButton />
-      <BurgerMenu toggleNav={toggleNav} />
+      <div className={HeaderStyles.header__flex}>
+        <BurgerMenu toggleNav={toggleNav} />
+        <ThemeButton />
+      </div>
     </header>
   );
 }
