@@ -4,15 +4,16 @@
     position: fixed;
     top: 0;
     left: 0;
-    pointer-events: auto;
+    pointer-events: none;
     display: flex;
+
 }
 
 .column {
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: pink;
+    background-color: var(--accent-color-2);
 }
 
 .background {
@@ -26,6 +27,7 @@
     color: white;
     font-size: 29px;
     opacity: 1;
+
 }
 
 .menu {

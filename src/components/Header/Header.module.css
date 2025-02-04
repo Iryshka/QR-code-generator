@@ -12,7 +12,8 @@
     border: 2px solid var(--font-color);
     font-size: 28px;
     color: var(--font-color);
-    z-index: 10;
+    /*z-index: 3;*/
+
 }
 
 .header__flex {
