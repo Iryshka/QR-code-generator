@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "flowbite-react": "^0.10.2",
-    "gsap": "^3.12.7",
+    "framer-motion": "^12.1.0",
     "primereact": "^10.9.2",
     "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
