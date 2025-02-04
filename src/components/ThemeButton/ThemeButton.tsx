@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PiSun, PiMoon } from "react-icons/pi"; // Import PrimeReact icons
+import { PiSun, PiMoon } from "react-icons/pi";
 import ThemeButtonStyles from "./ThemeButton.module.css";
 import ThemeContext from "../../context/ThemeContext.tsx";
 

@@ -7,7 +7,6 @@ import ThemeButton from "../ThemeButton/ThemeButton.tsx";
 import ThemeContext from "../../context/ThemeContext.tsx";
 
 function Header({ toggleMobileNav }) {
-  console.log("Header", !!toggleMobileNav);
   return (
     <header className={HeaderStyles.header}>
       <Logo />

@@ -22,7 +22,7 @@ export function ThemeProvider({ children }) {
       return prevState === "light" ? "dark" : "light";
     });
   };
-  console.log(theme);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

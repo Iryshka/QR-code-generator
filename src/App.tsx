@@ -5,12 +5,13 @@ import Header from "./components/Header/Header.tsx";
 import Hero from "./components/Hero/Hero.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
 import MobileNav from "./components/MobileNav/MobileNav.tsx";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
   const toggleMobileNav = () => {
-    console.log("toggle");
+    console.log(isMobileNavVisible);
     setIsMobileNavVisible((prev) => !prev);
   };
   return (
@@ -19,7 +20,11 @@ function App() {
         <MarqueeText />
         <Header toggleMobileNav={toggleMobileNav} />
         <Hero />
-        {isMobileNavVisible && <MobileNav />}
+        <AnimatePresence>
+          {isMobileNavVisible && (
+            <MobileNav isMobileNavVisible={isMobileNavVisible} />
+          )}
+        </AnimatePresence>
       </AnimationProvider>
     </ThemeProvider>
   );

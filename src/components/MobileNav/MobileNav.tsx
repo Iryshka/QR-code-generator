@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import MobileNavStyles from "./MobileNavStyles.module.css";
 
-function MobileNav({ isVisible }) {
+function MobileNav({ isMobileNavVisible }) {
+  console.log(isMobileNavVisible);
+  const numberOfColumns = 8;
   function anim(variants, custom) {
     return {
       initial: "initial",
@@ -12,8 +14,6 @@ function MobileNav({ isVisible }) {
     };
   }
 
-  const numberOfColumns = 8;
-
   const expand = {
     initial: { top: "0%" },
     enter: (index) => ({
@@ -22,7 +22,7 @@ function MobileNav({ isVisible }) {
         duration: 0.5,
         delay: 0.05 * index,
       },
-      transitionend: {
+      transitionEnd: {
         height: 0,
         top: 0,
       },
@@ -36,25 +36,50 @@ function MobileNav({ isVisible }) {
     }),
   };
 
+  const shrink = {
+    initial: { bottom: "0" },
+    enter: (index) => ({
+      bottom: "100%",
+      transition: {
+        duration: 0.5,
+        delay: 0.05 * index,
+      },
+      transitionEnd: {
+        height: 0,
+        bottom: 0,
+      },
+    }),
+    exit: (index) => ({
+      height: "0",
+      transition: {
+        duration: 0.5,
+        delay: 0.05 * index,
+      },
+    }),
+  };
+
+  const animation = isMobileNavVisible ? expand : shrink;
+
   return (
     <motion.div
       className={MobileNavStyles.page__container}
       initial="initial"
-      animate={isVisible ? "enter" : "initial"}
+      animate={isMobileNavVisible ? "enter" : "initial"}
+      exit="exit"
     >
       <div className={MobileNavStyles.background}>
         <nav className={MobileNavStyles.nav}>
           <ul className={MobileNavStyles.menu}>
-            <li>About</li>
-            <li>Pricing</li>
-            <li>Contacts</li>
+            <li className={MobileNavStyles.menu__item}>About</li>
+            <li className={MobileNavStyles.menu__item}>Pricing</li>
+            <li className={MobileNavStyles.menu__item}>Contacts</li>
           </ul>
         </nav>
       </div>
       <div className={MobileNavStyles.transition__container}>
         {[...Array(numberOfColumns)].map((_, index) => (
           <motion.div
-            {...anim(expand, numberOfColumns - index)}
+            {...anim(animation, numberOfColumns - index)}
             className={MobileNavStyles.column}
             key={index}
           />
