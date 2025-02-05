@@ -10,8 +10,8 @@ function Header({ toggleMobileNav }) {
   return (
     <header className={HeaderStyles.header}>
       <Logo />
-      <NavBar />
       <div className={HeaderStyles.header__flex}>
+        <NavBar />
         <BurgerMenu toggleMobileNav={toggleMobileNav} />
         <ThemeButton />
       </div>
