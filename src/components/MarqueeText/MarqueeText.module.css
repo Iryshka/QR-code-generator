@@ -1,5 +1,7 @@
 .marquee__wrapper {
     position: sticky;
+    display: flex;
+    align-items: center;
     top: 0;
     left: 0;
     font-family: "Poppins", serif;
