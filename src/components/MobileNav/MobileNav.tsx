@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import MobileNavStyles from "./MobileNavStyles.module.css";
+import { useEffect } from "react";
 
 function MobileNav({ isMobileNavVisible }) {
   console.log(isMobileNavVisible);
@@ -18,6 +19,7 @@ function MobileNav({ isMobileNavVisible }) {
     initial: { top: "0%" },
     enter: (index) => ({
       top: "100%",
+
       transition: {
         duration: 0.5,
         delay: 0.05 * index,

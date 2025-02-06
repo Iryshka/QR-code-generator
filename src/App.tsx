@@ -11,7 +11,6 @@ function App() {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
   const toggleMobileNav = () => {
-    console.log(isMobileNavVisible);
     setIsMobileNavVisible((prev) => !prev);
   };
   return (
@@ -20,9 +19,13 @@ function App() {
         <MarqueeText />
         <Header toggleMobileNav={toggleMobileNav} />
         <Hero />
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {isMobileNavVisible && (
-            <MobileNav isMobileNavVisible={isMobileNavVisible} />
+            <MobileNav
+              key="mobileNav"
+              isMobileNavVisible={isMobileNavVisible}
+              toggleMobileNav={toggleMobileNav}
+            />
           )}
         </AnimatePresence>
       </AnimationProvider>
