@@ -1,0 +1,23 @@
+.navbar {
+    display: none;
+    gap: 25px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 18px;
+        color: var(--font-color);
+        font-weight: 700;
+}
+
+
+
+@media (min-width: 768px) {
+    .navbar {
+        display: flex;
+
+
+    }
+}
+
+

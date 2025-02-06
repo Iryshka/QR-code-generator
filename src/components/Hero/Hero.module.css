@@ -1,0 +1,30 @@
+.hero__wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+    padding: 20px 10px;
+   background-color: var(--bg-color);
+}
+
+.hero__title {
+   font-size: 28px;
+   font-weight: 600;
+   color: var(--font-color);
+   margin:10px 0;
+}
+
+.hero__subtitle {
+   font-size: 18px;
+   line-height: 1.5;
+   margin-bottom: 10px;
+   max-width: 90%;
+   color: var(--font-color);
+}
+
+@media (min-width: 768px) {
+   .hero__subtitle {
+      max-width: 70%;
+   }
+}

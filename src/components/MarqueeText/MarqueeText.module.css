@@ -1,0 +1,59 @@
+.marquee__wrapper {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: normal;
+    text-transform: uppercase;
+    height: 5vh;
+    padding: 0.1rem 0;
+    color: black;
+    background-color: var(--marquee-text);
+    font-size: 1.2rem;
+}
+
+.marquee__track {
+    display: flex;
+    gap: 1.8rem;
+    width: max-content;
+    padding-left: 1.8rem;
+    animation: marquee-move-text 15s linear infinite;
+}
+
+.marquee__text {
+    overflow: clip;
+    mask-image: linear-gradient(to right, transparent, black 2.5rem, black calc(100% - 2.5rem), transparent);
+}
+
+.marquee__phrase::after {
+    content: "•";
+    font-size: 18px;
+    color: black;
+    margin-left: 0.6rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.marquee__phrase:last-child::after {
+    content: "";
+}
+
+
+@keyframes marquee-move-text {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.animate {
+    animation: marquee-move-text 15s linear infinite;
+}
+
+.stop {
+    animation: none;
+
+}

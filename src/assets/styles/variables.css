@@ -1,0 +1,27 @@
+:root {
+    --font-color: #231b1b;
+    --accent-color-2: #57C4EC;
+    --accent-color-3: #88f588;
+    --accent-color-3-transparent: rgba(136, 245, 136, 0);
+    --marquee-text: #f5bc03;
+    --error-color: #f17575;
+    --bg-color: #fdfcfb;;
+    --breakpoint-x-small: 375px;
+    --breakpoint-small: 768px;
+    --breakpoint-medium: 1024px;
+    --breakpoint-large: 1440px;
+}
+
+[data-theme="dark"] {
+    --font-color: #eeeded;
+    --accent-color-1: #e210f1;
+    --accent-color-2: #555555;
+    --accent-color-3: #333333;
+    --marquee-text: #640279;
+    --error-color: #f28c8c;
+    --bg-color: #121212;
+}
+
+
+
+
