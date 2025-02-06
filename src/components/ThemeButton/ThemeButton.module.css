@@ -1,18 +1,22 @@
 .theme__button {
     display: flex;
-    padding: 4px;
+
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 23px;
+    border: 2px solid black;
     outline: none;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: "Space Mono", serif;
     color: var(--font-color);
+    background-color: var(--accent-color-3);
     font-weight: 600;
     font-size: 17px;
-    border-radius: 8px;
     overflow: hidden;
 }
 
 .theme__button:hover {
-    background: radial-gradient(circle, var(--accent-color-3) 10%, var(--accent-color-3-transparent) 80%);
     transition: background 0.3s ease;
 }

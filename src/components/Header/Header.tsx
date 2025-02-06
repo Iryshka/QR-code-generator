@@ -5,15 +5,25 @@ import NavBar from "../NavBar/NavBar.tsx";
 import { useContext, useState } from "react";
 import ThemeButton from "../ThemeButton/ThemeButton.tsx";
 import ThemeContext from "../../context/ThemeContext.tsx";
+import MarqueeText from "../MarqueeText/MarqueeText.tsx";
+import ToggleButton from "../ToggleButton/ToggleButton.tsx";
 
 function Header({ toggleMobileNav }) {
   return (
     <header className={HeaderStyles.header}>
-      <Logo />
-      <div className={HeaderStyles.header__flex}>
-        <NavBar />
-        <BurgerMenu toggleMobileNav={toggleMobileNav} />
-        <ThemeButton />
+      <div className={HeaderStyles.marquee}>
+        <MarqueeText />
+      </div>
+      <div className={HeaderStyles.header__wrapper}>
+        <Logo />
+        <div className={HeaderStyles.header__flex}>
+          <NavBar />
+          <BurgerMenu toggleMobileNav={toggleMobileNav} />
+          <div className={HeaderStyles.buttons__flex}>
+            <ThemeButton />
+            <ToggleButton />
+          </div>
+        </div>
       </div>
     </header>
   );

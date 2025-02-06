@@ -5,7 +5,6 @@ import ToggleButton from "../ToggleButton/ToggleButton.tsx";
 function Hero() {
   return (
     <div className={styles.hero__wrapper}>
-      <ToggleButton />
       <h1 className={styles.hero__title}>FREE ONLINE QR GENERATOR</h1>
 
       <h3 className={styles.hero__subtitle}>

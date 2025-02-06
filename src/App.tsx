@@ -16,7 +16,6 @@ function App() {
   return (
     <ThemeProvider>
       <AnimationProvider>
-        <MarqueeText />
         <Header toggleMobileNav={toggleMobileNav} />
         <Hero />
         <AnimatePresence exitBeforeEnter>

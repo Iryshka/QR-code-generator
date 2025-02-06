@@ -11,6 +11,7 @@
     height: 5vh;
     padding: 0.1rem 0;
     color: black;
+    border-bottom: 2px solid var(--font-color);
     background-color: var(--marquee-text);
     font-size: 1.2rem;
 }
