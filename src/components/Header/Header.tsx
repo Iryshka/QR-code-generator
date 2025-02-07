@@ -7,8 +7,10 @@ import ThemeButton from "../ThemeButton/ThemeButton.tsx";
 import ThemeContext from "../../context/ThemeContext.tsx";
 import MarqueeText from "../MarqueeText/MarqueeText.tsx";
 import ToggleButton from "../ToggleButton/ToggleButton.tsx";
+import AnimatedButton from "../AnimatedButton/AnimatedButton.tsx";
 
-function Header({ toggleMobileNav }) {
+function Header() {
+  const [isActive, setIsActive] = useState(false);
   return (
     <header className={HeaderStyles.header}>
       <div className={HeaderStyles.marquee}>
@@ -18,7 +20,8 @@ function Header({ toggleMobileNav }) {
         <Logo />
         <div className={HeaderStyles.header__flex}>
           <NavBar />
-          <BurgerMenu toggleMobileNav={toggleMobileNav} />
+          <AnimatedButton isActive={isActive} setIsActive={setIsActive} />
+          {/*<BurgerMenu toggleMobileNav={toggleMobileNav} />*/}
           <div className={HeaderStyles.buttons__flex}>
             <ThemeButton />
             <ToggleButton />
