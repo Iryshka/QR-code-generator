@@ -84,7 +84,11 @@ function Generator() {
           />
         </div>
         {error && <p className={generatorStyles.generator__error}>{error}</p>}
-        <Button className={buttonStyles.button} onClick={generateQRcode}>
+        <Button
+          isDisabled={url.length === 0}
+          className={buttonStyles.button}
+          onClick={generateQRcode}
+        >
           Generate QR
         </Button>
       </div>
@@ -119,7 +123,11 @@ function Generator() {
           </div>
         </div>
 
-        <Button className={buttonStyles.button} onClick={downloadQRcode}>
+        <Button
+          disabled={false}
+          className={buttonStyles.button}
+          onClick={downloadQRcode}
+        >
           Download QR Code
         </Button>
       </div>

@@ -1,7 +1,6 @@
-import styles from "./Button.module.css";
-function Button({ onClick, children, className }) {
+function Button({ onClick, children, className, isDisabled }) {
   return (
-    <button onClick={onClick} className={className}>
+    <button onClick={onClick} className={className} disabled={isDisabled}>
       {children}
     </button>
   );
