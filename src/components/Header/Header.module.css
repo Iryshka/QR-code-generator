@@ -45,6 +45,21 @@
     gap: 5px;
 }
 
+.menu__flex {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background-color: var(--accent-color-3);
+    border: 2px solid var(--font-color);
+    z-index: 10;
+}
+
 
 
 

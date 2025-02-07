@@ -7,6 +7,7 @@
     font-weight: bold;
     position: relative;
     overflow: hidden; /* Keep this */
+    z-index: 11;
 }
 
 .slider {
@@ -35,4 +36,9 @@
 .el:nth-of-type(2) {
     background-color: var(--font-color);
     color: white;
+}
+
+.el:hover .perspective__text {
+    transform: rotateX(90deg);
+    background-color: red;
 }

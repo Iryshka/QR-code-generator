@@ -1,5 +1,6 @@
 import AnimatedButtonStyles from "./AnimatedButtonStyles.module.css";
 import { motion } from "framer-motion";
+import PerspectiveText from "../PerspectiveText/PerspectiveText.tsx";
 
 function AnimatedButton({ isActive, setIsActive }) {
   console.log(isActive);
@@ -21,10 +22,16 @@ function AnimatedButton({ isActive, setIsActive }) {
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <div className={AnimatedButtonStyles.el}>
-          <p>Menu</p>
+          <PerspectiveText
+            classname={AnimatedButtonStyles.perspective__text}
+            label="Menu"
+          />
         </div>
         <div className={AnimatedButtonStyles.el}>
-          <p>Close</p>
+          <PerspectiveText
+            classname={AnimatedButtonStyles.perspective__text}
+            label="Close"
+          />
         </div>
       </motion.div>
     </motion.div>
