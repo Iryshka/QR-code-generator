@@ -10,6 +10,11 @@
     gap: 10px;
 }
 
+.link__container {
+    perspective: 120px;
+    perspective-origin: bottom;
+}
+
 .link {
     font-size: 20px;
     font-weight: 600;

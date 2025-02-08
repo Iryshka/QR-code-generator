@@ -3,12 +3,18 @@ import { motion } from "framer-motion";
 import MobileNavStyles from "./MobileNav.module.css";
 
 const perspective = {
-  initial: { opacity: 0, rotateX: 90 },
+  initial: { opacity: 0, rotateX: 90, translateY: 80, translateX: -20 },
   enter: (index) => ({
     opacity: 1,
     rotateX: 0,
+    translateY: 0,
+    translateX: 0,
     transition: {
-      delay: 0.4 + index * 0.1,
+      duration: 0.65,
+      opacity: {
+        duration: 0.35,
+      },
+      delay: 0.2 + index * 0.1,
     },
   }),
   exit: { opacity: 0 },
@@ -20,23 +26,25 @@ function MobileNav() {
       <div className={MobileNavStyles.links}>
         {Links.map((link, index) => {
           return (
-            <motion.div
-              className={MobileNavStyles.link}
-              key={index}
-              custom={index}
-              variants={perspective}
-              animate="enter"
-              exit="exit"
-              initial="initial"
-            >
-              <a>{link.title}</a>
-            </motion.div>
+            <div key={index} className={MobileNavStyles.link__container}>
+              <motion.div
+                className={MobileNavStyles.link}
+                custom={index}
+                variants={perspective}
+                animate="enter"
+                exit="exit"
+                initial="initial"
+              >
+                <a>{link.title}</a>
+              </motion.div>
+            </div>
           );
         })}
       </div>
     </div>
   );
 }
+
 export default MobileNav;
 
 // import { AnimatePresence, motion } from "framer-motion";
