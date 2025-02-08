@@ -7,7 +7,7 @@
     border: 2px solid var(--font-color);
     font-size: 28px;
     color: var(--font-color);
-
+    z-index: 10;
 }
 
 .header__wrapper {

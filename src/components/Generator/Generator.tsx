@@ -39,6 +39,7 @@ function Generator() {
   };
 
   const downloadQRcode = () => {
+
     const svgElement = qrRef.current;
     if (!svgElement) return;
 
@@ -70,7 +71,8 @@ function Generator() {
 
   return (
     <main className={generatorStyles.generator}>
-      <QRmenu />
+      <div className={generatorStyles.menu__wrapper}><QRmenu /></div>
+      <div className={generatorStyles.generator__wrapper}>
       <div className={generatorStyles.input__wrapper}>
         <div className={generatorStyles.input__label}>
           <label htmlFor="link">Enter your URL</label>
@@ -130,6 +132,7 @@ function Generator() {
         >
           Download QR Code
         </Button>
+      </div>
       </div>
     </main>
   );
