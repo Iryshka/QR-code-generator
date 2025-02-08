@@ -1,16 +1,17 @@
 .menu {
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     border-bottom: 2px solid var(--font-color);
-    grid-column: span 2;
+}
+
+.menu:hover {
+    background-color: var(--accent-color-3);
 }
 
 @media (min-width: 768px) {
     .menu {
-
-        justify-content: flex-start;
-
     }
 }
 
