@@ -14,8 +14,8 @@ import AnimatedButton from "../AnimatedButton/AnimatedButton.tsx";
 const variants = {
   open: { width: 300, height: 400, top: "-15px", right: "-15px" },
   closed: {
-    height: 35,
-    width: 80,
+    height: 30,
+    width: 70,
     top: "0px",
     right: "0px",
     transition: {

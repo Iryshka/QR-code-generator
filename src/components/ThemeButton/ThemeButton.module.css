@@ -1,10 +1,9 @@
 .theme__button {
     display: flex;
-
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 23px;
+    width: 30px;
+    height: 22px;
     border: 2px solid black;
     outline: none;
     cursor: pointer;
@@ -15,6 +14,12 @@
     font-weight: 600;
     font-size: 17px;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .toggle__button {
+        width: 35px
+    }
 }
 
 .theme__button:hover {
