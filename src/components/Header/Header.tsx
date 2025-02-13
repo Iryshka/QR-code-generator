@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import HeaderStyles from "./Header.module.css";
 import Logo from "../Logo/Logo.tsx";
 import MobileNav from "../MobileNav/MobileNav.tsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ThemeButton from "../ThemeButton/ThemeButton.tsx";
 import MarqueeText from "../MarqueeText/MarqueeText.tsx";
 import ToggleButton from "../ToggleButton/ToggleButton.tsx";
@@ -62,6 +62,8 @@ function getResponsiveVariants() {
 function Header() {
   const [isActive, setIsActive] = useState(false);
   const [variants, setVariants] = useState(getResponsiveVariants());
+  const mobileNavRef = useRef();
+
 
   useEffect(() => {
     const handleResize = () => setVariants(getResponsiveVariants());
@@ -69,6 +71,27 @@ function Header() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+          mobileNavRef.current &&
+          !mobileNavRef.current.contains(event.target as Node)
+      ) {
+        setIsActive(false);
+      }
+    };
+
+    if (isActive) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isActive]);
+
+
 
   return (
       <header className={HeaderStyles.header}>
@@ -80,6 +103,7 @@ function Header() {
           <div className={HeaderStyles.header__flex}>
             <div className={HeaderStyles.menu__flex}>
               <motion.div
+                  ref={mobileNavRef}
                   variants={variants}
                   animate={isActive ? "open" : "closed"}
                   initial="closed"

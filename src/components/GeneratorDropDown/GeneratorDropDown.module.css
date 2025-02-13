@@ -26,9 +26,6 @@
     transition: background-color 0.2s ease-in;
 }
 
-/*.dropdownButton:hover {*/
-/*    background-color: var(--accent-color-3);*/
-/*}*/
 
 .dropdownMenu {
     position: absolute;
